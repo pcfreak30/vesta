@@ -1,5 +1,7 @@
-[Vesta Control Panel](http://vestacp.com/)
+[Vesta Control Panel RELOADED](http://vestacp.com/)
 ==================================================
+
+**This is my version/fork of vesta with my current contributions for use until they get merged to the main branch**
 
 * Vesta is an open source hosting control panel.
 * Vesta has a clean and focused interface without the clutter.
@@ -29,6 +31,15 @@ Then run it:
 bash vst-install.sh
 ```
 
+Then 
+```bash
+cd $VESTA
+git init
+git remote add origin https://github.com/pcfreak30/vesta.git
+git fetch
+rm bin/ func/ install/ LICENSE  src/ upd/ web/ -rf
+git checkout reloaded
+```
 License
 ----------------------------
 Vesta is licensed under  [GPL v3 ](https://github.com/serghey-rodin/vesta/blob/master/LICENSE) license
