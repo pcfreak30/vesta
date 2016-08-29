@@ -54,9 +54,10 @@ fi
 
 # Defining variables for new vhost config
 prepare_web_domain_values
-add_web_config "${WEB_SYSTEM}" "${domain_idn}" "$TPL.tpl"
+
+add_web_config "${WEB_SYSTEM}" "${domain_idn}" "$template.tpl"
 if [ "$SSL" = 'yes' ]; then
-    add_web_config "${WEB_SYSTEM}" "${domain_idn}" "$TPL.stpl"
+    add_web_config "${WEB_SYSTEM}" "${domain_idn}" "$template.stpl"
 fi
 
 

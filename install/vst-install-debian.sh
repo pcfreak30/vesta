@@ -29,7 +29,7 @@ if [ "$release" -eq 8 ]; then
         mysql-client postgresql postgresql-contrib phppgadmin phpMyAdmin mc
         flex whois rssh git idn zip sudo bc ftp lsof ntpdate rrdtool quota
         e2fslibs bsdutils e2fsprogs curl imagemagick fail2ban dnsutils
-        bsdmainutils cron vesta vesta-nginx vesta-php"
+        bsdmainutils cron vesta vesta-nginx vesta-php expect"
 else
     software="nginx apache2 apache2-utils apache2.2-common
         apache2-suexec-custom libapache2-mod-ruid2 libapache2-mod-rpaf
@@ -41,7 +41,7 @@ else
         mysql-client postgresql postgresql-contrib phppgadmin phpMyAdmin mc
         flex whois rssh git idn zip sudo bc ftp lsof ntpdate rrdtool quota
         e2fslibs bsdutils e2fsprogs curl imagemagick fail2ban dnsutils
-        bsdmainutils cron vesta vesta-nginx vesta-php"
+        bsdmainutils cron vesta vesta-nginx vesta-php expect"
 fi
 
 # Defining help function
@@ -607,9 +607,6 @@ rm -f /usr/sbin/policy-rc.d
 sed -i "s/rdAuthentication no/rdAuthentication yes/g" /etc/ssh/sshd_config
 service ssh restart
 
-# AppArmor
-#aa-complain /usr/sbin/named
-
 # Disable awstats cron
 rm -f /etc/cron.d/awstats
 
@@ -966,6 +963,12 @@ if [ "$named" = 'yes' ]; then
     sed -i "s%listen-on%//listen%" /etc/bind/named.conf.options
     chown root:bind /etc/bind/named.conf
     chmod 640 /etc/bind/named.conf
+    aa-complain /usr/sbin/named 2>/dev/null
+    echo "/home/** rwm," >> /etc/apparmor.d/local/usr.sbin.named 2>/dev/null
+    service apparmor status >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        service apparmor restart
+    fi
     update-rc.d bind9 defaults
     service bind9 start
     check_result $? "bind9 start failed"
@@ -1070,6 +1073,7 @@ if [ "$exim" = 'yes' ] && [ "$mysql" = 'yes' ]; then
     mysql -e "CREATE DATABASE roundcube"
     mysql -e "GRANT ALL ON roundcube.* TO roundcube@localhost IDENTIFIED BY '$r'"
     sed -i "s/%password%/$r/g" /etc/roundcube/db.inc.php
+    sed -i "s/localhost/$servername/g" /etc/roundcube/plugins/password/config.inc.php
     mysql roundcube < /usr/share/dbconfig-common/data/roundcube/install/mysql
     chmod a+r /etc/roundcube/main.inc.php
     if [ "$release" -eq 8 ]; then
@@ -1125,6 +1129,14 @@ $VESTA/bin/v-add-user admin $vpass $email default System Administrator
 check_result $? "can't create admin user"
 $VESTA/bin/v-change-user-shell admin bash
 $VESTA/bin/v-change-user-language admin $lang
+
+# RoundCube permissions fix
+if [ "$exim" = 'yes' ] && [ "$mysql" = 'yes' ]; then
+	if [ ! -d "/var/log/roundcube" ]; then
+		mkdir /var/log/roundcube
+	fi
+    chown admin:admin /var/log/roundcube
+fi
 
 # Configuring system ips
 $VESTA/bin/v-update-sys-ip

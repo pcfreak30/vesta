@@ -27,7 +27,7 @@ software="nginx apache2 apache2-utils apache2.2-common
         mysql-client postgresql postgresql-contrib phppgadmin phpMyAdmin mc
         flex whois rssh git idn zip sudo bc ftp lsof ntpdate rrdtool quota
         e2fslibs bsdutils e2fsprogs curl imagemagick fail2ban dnsutils
-        bsdmainutils cron vesta vesta-nginx vesta-php"
+        bsdmainutils cron vesta vesta-nginx vesta-php expect"
 
 # Defining help function
 help() {
@@ -596,9 +596,6 @@ rm -f /usr/sbin/policy-rc.d
 sed -i "s/rdAuthentication no/rdAuthentication yes/g" /etc/ssh/sshd_config
 service ssh restart
 
-# AppArmor
-#aa-complain /usr/sbin/named
-
 # Disable awstats cron
 rm -f /etc/cron.d/awstats
 
@@ -628,8 +625,6 @@ chmod 755 /usr/bin/rssh
 #                     Configure VESTA                      #
 #----------------------------------------------------------#
 
-# AppArmor
-aa-complain /usr/sbin/named 2>/dev/null
 
 # Downlading sudo configuration
 mkdir -p /etc/sudoers.d
@@ -958,6 +953,12 @@ if [ "$named" = 'yes' ]; then
     sed -i "s%listen-on%//listen%" /etc/bind/named.conf.options
     chown root:bind /etc/bind/named.conf
     chmod 640 /etc/bind/named.conf
+    aa-complain /usr/sbin/named 2>/dev/null
+    echo "/home/** rwm," >> /etc/apparmor.d/local/usr.sbin.named 2>/dev/null
+    service apparmor status >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        service apparmor restart
+    fi
     update-rc.d bind9 defaults
     service bind9 start
     check_result $? "bind9 start failed"
