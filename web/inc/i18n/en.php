@@ -246,6 +246,7 @@ $LANG['en'] = array(
     'MySQL Usage on localhost'  => 'MySQL Usage on localhost',
     'PostgreSQL Usage on localhost'  => 'PostgreSQL Usage on localhost',
     'Bandwidth Usage eth0'  => 'Bandwidth Usage eth0',
+    'Bandwidth Usage eth1'  => 'Bandwidth Usage eth1',
     'Exim Usage'  => 'Exim Usage',
     'FTP Usage'  => 'FTP Usage',
     'SSH Usage'  => 'SSH Usage',
@@ -701,6 +702,9 @@ $LANG['en'] = array(
 
     'Minutes' => 'Minutes',
     'Hourly' => 'Hourly',
+    'Daily' => 'Dayly',
+    'Weekly' => 'Weekly',
+    'Monthly' => 'Monthly',
     'Run Command' => 'Run Command',
     'every month' => 'every month',
     'every odd month' => 'every odd month',

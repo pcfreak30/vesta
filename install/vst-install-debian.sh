@@ -1037,6 +1037,10 @@ if [ "$clamd" = 'yes' ]; then
     wget $vestacp/clamav/clamd.conf -O /etc/clamav/clamd.conf
     /usr/bin/freshclam
     update-rc.d clamav-daemon defaults
+    if [ ! -d "/var/run/clamav" ]; then
+        mkdir /var/run/clamav
+    fi
+    chown -R clamav:clamav /var/run/clamav
     service clamav-daemon start
     check_result $? "clamav-daeom start failed"
 fi
@@ -1051,6 +1055,9 @@ if [ "$spamd" = 'yes' ]; then
     sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/spamassassin
     service spamassassin start
     check_result $? "spamassassin start failed"
+    if [[ $(systemctl list-unit-files | grep spamassassin) =~ "disabled" ]]; then
+        systemctl enable spamassassin
+    fi
 fi
 
 
