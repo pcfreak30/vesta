@@ -364,6 +364,11 @@ update_domain_zone() {
     if [ -z "$SERIAL" ]; then
         SERIAL=$(date +'%Y%m%d01')
     fi
+    if [[ "$domain" = *[![:ascii:]]* ]]; then
+        domain_idn=$(idn -t --quiet -a $domain)
+    else
+        domain_idn=$domain
+    fi
     zn_conf="$HOMEDIR/$user/conf/dns/$domain.db"
     echo "\$TTL $TTL
 @    IN    SOA    $SOA.    root.$domain_idn. (
@@ -510,12 +515,12 @@ is_mail_domain_new() {
 is_mail_new() {
     check_acc=$(grep "ACCOUNT='$1'" $USER_DATA/mail/$domain.conf)
     if [ ! -z "$check_acc" ]; then
-        check_result $E_EXIST "mail account $1 is already exists"
+        check_result $E_EXISTS "mail account $1 is already exists"
     fi
     check_als=$(awk -F "ALIAS='" '{print $2}' $USER_DATA/mail/$domain.conf )
     check_als=$(echo "$check_als" | cut -f 1 -d "'" | grep -w $1)
     if [ ! -z "$check_als" ]; then
-        check_result $E_EXIST "mail alias $1 is already exists"
+        check_result $E_EXISTS "mail alias $1 is already exists"
     fi
 }
 
