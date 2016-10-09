@@ -3,6 +3,8 @@
 
 **This is my version/fork of vesta with my current contributions for use until they get merged to the main branch**
 
+[![Join the chat at https://gitter.im/vesta-cp/Lobby](https://badges.gitter.im/vesta-cp/Lobby.svg)](https://gitter.im/vesta-cp/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 * Vesta is an open source hosting control panel.
 * Vesta has a clean and focused interface without the clutter.
 * Vesta has the latest of very innovative technologies.
