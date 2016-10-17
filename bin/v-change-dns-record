@@ -63,6 +63,16 @@ if [[ $TYPE =~ NS|CNAME|MX|PTR|SRV ]]; then
     fi
 fi
 
+dvalue=${dvalue//\"/}
+if [ ${#dparts} -gt 255 ]; then
+    dparts=$(echo "$dvalue" | sed -r 's/(.{255})/\1""/g')
+    dparts='"'"$dparts"'"'
+else
+    if [[ "$dvalue" =~ [\;[:space:]] ]]; then
+        dvalue='"'"$dvalue"'"'
+    fi
+fi
+
 # Additional verifications
 is_dns_fqnd "$TYPE" "$dvalue"
 is_dns_nameserver_valid "$domain" "$TYPE" "$dvalue"
