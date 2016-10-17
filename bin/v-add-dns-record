@@ -50,9 +50,9 @@ if [[ $rtype =~ NS|CNAME|MX|PTR|SRV ]]; then
 fi
 
 dvalue=${dvalue//\"/}
-if [ ${#dparts} -gt 255 ]; then
-    dparts=$(echo "$dvalue" | sed -r 's/(.{255})/\1""/g')
-    dparts='"'"$dparts"'"'
+if [ ${#dvalue} -gt 255 ]; then
+    dvalue=$(echo "$dvalue" | sed -r 's/(.{255})/\1""/g')
+    dvalue='"'"$dvalue"'"'
 else
     if [[ "$dvalue" =~ [\;[:space:]] ]]; then
         dvalue='"'"$dvalue"'"'
