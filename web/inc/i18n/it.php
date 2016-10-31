@@ -191,6 +191,9 @@ $LANG['it'] = array(
     'template'  => 'template',
     'SSL Support'  => 'Supporto SSL',
     'SSL Home Directory'  => 'SSL Home',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'Supporto Proxy',
     'Proxy Extensions'  => 'Estensioni Proxy',
     'Web Statistics'  => 'Statistiche Web',
@@ -749,4 +752,5 @@ $LANG['it'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 );

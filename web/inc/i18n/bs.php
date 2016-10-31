@@ -190,6 +190,9 @@ $LANG['bs'] = array(
     'template'  => 'šablon',
     'SSL Support'  => 'SSL podrška',
     'SSL Home Directory'  => 'SSL direktorij',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
+    'Lets Encrypt'  => 'Lets Encrypt',
     'Proxy Support'  => 'Proxy podrška',
     'Proxy Extensions'  => 'Proxy ekstenzije',
     'Web Statistics'  => 'Web statistika',
@@ -747,4 +750,5 @@ $LANG['bs'] = array(
 
     'maximum characters length, including prefix' => 'maksimalna dužina sme biti %s karaktera, uključujući i prefix',
 
+    'no notifications' => 'no notifications',
 );

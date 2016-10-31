@@ -192,6 +192,9 @@ $LANG['fi'] = array(
     'template' => 'pohjat',
     'SSL Support' => 'SSL-tuki',
     'SSL Home Directory' => 'SSL-kotihakemisto',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support' => 'Proxy-tuki',
     'Proxy Extensions' => 'Proxy-laajennukset',
     'Web Statistics' => 'Web-tilastot',
@@ -750,6 +753,7 @@ $LANG['fi'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 // Texts below doesn't exist in en.php
     'traffic' => 'tiedonsiirto',
     'disk' => 'levytila',

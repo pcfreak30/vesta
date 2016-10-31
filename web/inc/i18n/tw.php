@@ -192,6 +192,9 @@ $LANG['tw'] = array(
     'template'  => '模板',
     'SSL Support'  => 'SSL支援',
     'SSL Home Directory'  => 'SSL主目錄',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'Nginx支援',
     'Proxy Extensions'  => 'Nginx擴充',
     'Web Statistics'  => '網站統計',
@@ -771,4 +774,5 @@ $LANG['tw'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 );

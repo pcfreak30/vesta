@@ -190,6 +190,9 @@ $LANG['ar'] = array(
     'template'  => 'نموذج',
     'SSL Support'  => 'دعم SSL',
     'SSL Home Directory'  => 'المجلد الرئيسي لـ SSL',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'دغم بروكسي',
     'Proxy Extensions'  => 'توسعات بروكسي',
     'Web Statistics'  => 'إحصائيات الوب',
@@ -747,6 +750,8 @@ $LANG['ar'] = array(
     'Do not use encryption' => 'Do not use encryption',
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
+
+    'no notifications' => 'no notifications',
 
 // Texts below doesn't exist in en.php
     '%s rule' => 'قواعد %s',

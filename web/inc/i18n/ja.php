@@ -190,6 +190,9 @@ $LANG['ja'] = array(
     'template'  => 'テンプレート',
     'SSL Support'  => 'SSLのサポート',
     'SSL Home Directory'  => 'SSLホームディレクトリ',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'プロキシのサポート',
     'Proxy Extensions'  => 'プロキシ対象拡張子',
     'Web Statistics'  => 'ウェブアクセス統計',
@@ -748,4 +751,5 @@ $LANG['ja'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 );

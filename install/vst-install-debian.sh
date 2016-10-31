@@ -29,7 +29,7 @@ if [ "$release" -eq 8 ]; then
         mysql-client postgresql postgresql-contrib phppgadmin phpMyAdmin mc
         flex whois rssh git idn zip sudo bc ftp lsof ntpdate rrdtool quota
         e2fslibs bsdutils e2fsprogs curl imagemagick fail2ban dnsutils
-        bsdmainutils cron vesta vesta-nginx vesta-php expect"
+        bsdmainutils cron vesta vesta-nginx vesta-php expect libmail-dkim-perl"
 else
     software="nginx apache2 apache2-utils apache2.2-common
         apache2-suexec-custom libapache2-mod-ruid2
@@ -556,6 +556,7 @@ if [ "$clamd" = 'no' ]; then
 fi
 if [ "$spamd" = 'no' ]; then
     software=$(echo "$software" | sed -e "s/spamassassin//")
+    software=$(echo "$software" | sed -e "s/libmail-dkim-perl//")
 fi
 if [ "$dovecot" = 'no' ]; then
     software=$(echo "$software" | sed -e "s/dovecot-imapd//")
@@ -1177,6 +1178,11 @@ $VESTA/bin/v-update-sys-ip
 ip=$(ip addr|grep 'inet '|grep global|head -n1|awk '{print $2}'|cut -f1 -d/)
 copy_of_ip=$ip
 
+# Firewall configuration
+if [ "$iptables" = 'yes' ]; then
+    $VESTA/bin/v-update-firewall
+fi
+
 # Get public ip
 pub_ip=$(curl -s vestacp.com/what-is-my-ip/)
 
@@ -1185,15 +1191,9 @@ if [ ! -z "$pub_ip" ] && [ "$pub_ip" != "$ip" ]; then
     ip=$pub_ip
 fi
 
-# Firewall configuration
-if [ "$iptables" = 'yes' ]; then
-    $VESTA/bin/v-update-firewall
-fi
-
 # Configuring libapache2-mod-remoteip
 if [ "$apache" = 'yes' ] && [ "$nginx"  = 'yes' ] ; then
-    # Get public ip after firewall update
-    copy_of_pub_ip=$(curl -s vestacp.com/what-is-my-ip/)
+    copy_of_pub_ip=$pub_ip
     echo "<IfModule mod_remoteip.c>" > /etc/apache2/mods-available/remoteip.conf
     echo "  RemoteIPHeader X-Real-IP" >> /etc/apache2/mods-available/remoteip.conf
     if [ "$copy_of_ip" != "127.0.0.1" ] && [ "$copy_of_pub_ip" != "127.0.0.1" ]; then

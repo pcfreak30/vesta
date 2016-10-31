@@ -190,6 +190,9 @@ $LANG['fr'] = array(
     'template'  => 'template',
     'SSL Support'  => 'Support SSL',
     'SSL Home Directory'  => 'Racine SSL',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'Support Proxy',
     'Proxy Extensions'  => 'Extensions Proxy',
     'Web Statistics'  => 'Statistiques Web',
@@ -748,6 +751,7 @@ $LANG['fr'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 // Texts below doesn't exist in en.php
     'disk' => 'disque',
     'traffic' => 'traffic',

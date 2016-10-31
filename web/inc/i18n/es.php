@@ -191,6 +191,9 @@ $LANG['es'] = array(
     'template'  => 'plantilla',
     'SSL Support'  => 'Soporte SSL',
     'SSL Home Directory'  => 'SSL Del Directorio Local',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'Soporte Proxy',
     'Proxy Extensions'  => 'Extensiones Proxy',
     'Web Statistics'  => 'Estadísticas Web',
@@ -746,4 +749,5 @@ $LANG['es'] = array(
 
     'maximum characters length, including prefix' => 'usar un máximo de %s, incluyendo prefijo',
 
+    'no notifications' => 'no notifications',
 );

@@ -191,6 +191,9 @@ $LANG['cn'] = array(
     'template' => '模板',
     'SSL Support' => 'SSL支持',
     'SSL Home Directory' => 'SSL主目录',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support' => '代理支持',
     'Proxy Extensions' => '代理扩展名',
     'Web Statistics' => '网站统计',
@@ -748,4 +751,5 @@ $LANG['cn'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 );

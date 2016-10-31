@@ -193,6 +193,9 @@ $LANG['id'] = array(
     'template'  => 'kerangka',
     'SSL Support'  => 'Dukungan SSL',
     'SSL Home Directory'  => 'Direktori SSL Home',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'Dukungan Proxy',
     'Proxy Extensions'  => 'Ekstensi Proxy',
     'Web Statistics'  => 'Statistik Web',
@@ -751,4 +754,5 @@ $LANG['id'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 );

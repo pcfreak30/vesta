@@ -193,6 +193,9 @@ $LANG['fa'] = [
     'template' => 'قالب',
     'SSL Support' => 'پشتیبانی SSL',
     'SSL Home Directory' => 'خانه SSL',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support' => 'پشتیبانی Proxy',
     'Proxy Extensions' => 'فرمت های Proxy',
     'Web Statistics' => 'آمار هاي وب',
@@ -750,6 +753,8 @@ $LANG['fa'] = [
     'Do not use encryption' => 'Do not use encryption',
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
+
+    'no notifications' => 'no notifications',
 
 // Texts below doesn't exist in en.php
     '70 خط اخر  %s.%s.log' => 'هفتاد خط انتهايي از %s.%s.log',

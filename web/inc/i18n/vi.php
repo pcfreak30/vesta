@@ -190,6 +190,9 @@ $LANG['vi'] = array(
     'template'  => 'mẫu',
     'SSL Support'  => 'Hỗ trợ SSL',
     'SSL Home Directory'  => 'Trang chủ SSL',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'Hỗ trợ Nginx',
     'Proxy Extensions'  => 'Phần mở rộng Nginx',
     'Web Statistics'  => 'Thống kê Web',
@@ -747,4 +750,5 @@ $LANG['vi'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 );

@@ -192,6 +192,9 @@ $LANG['ro'] = array(
     'template' => 'șablon',
     'SSL Support' => 'Support SSL',
     'SSL Home Directory' => 'Director SSL',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support' => 'Suport Proxy',
     'Proxy Extensions' => 'Extensii Proxy',
     'Web Statistics' => 'Statistici web',
@@ -750,4 +753,5 @@ $LANG['ro'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s caractere, incluzând prefixul',
 
+    'no notifications' => 'no notifications',
 );

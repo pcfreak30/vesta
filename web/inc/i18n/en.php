@@ -190,6 +190,8 @@ $LANG['en'] = array(
     'template'  => 'template',
     'SSL Support'  => 'SSL Support',
     'SSL Home Directory'  => 'SSL Home',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
     'Proxy Support'  => 'Proxy Support',
     'Proxy Extensions'  => 'Proxy Extensions',
     'Web Statistics'  => 'Web Statistics',
@@ -749,4 +751,5 @@ $LANG['en'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 );

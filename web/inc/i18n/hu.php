@@ -194,6 +194,9 @@ $LANG['hu'] = array(
     'template'  => 'sablon',
     'SSL Support'  => 'SSL támogatás',
     'SSL Home Directory'  => 'SSL kezdőlap',
+    'Lets Encrypt Support'  => 'Lets Encrypt Support',
+    'Lets Encrypt'  => 'Lets Encrypt',
+    'Your certificate will be automatically issued in 5 minutes' => 'Your certificate will be automatically issued in 5 minutes',
     'Proxy Support'  => 'Proxy támogatás',
     'Proxy Extensions'  => 'Proxy kiterjesztések',
     'Web Statistics'  => 'Web statisztikák',
@@ -752,6 +755,7 @@ $LANG['hu'] = array(
 
     'maximum characters length, including prefix' => 'maximum %s characters length, including prefix',
 
+    'no notifications' => 'no notifications',
 // Texts below doesn't exist in en.php
     'Bandwidth Usage eth1' => 'eth1 sávszélesség használat',
 );
