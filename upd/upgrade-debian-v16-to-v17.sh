@@ -13,7 +13,7 @@ apt-get update > /dev/null 2>&1
 
 
 # PATH fix
-if [ $( grep -ic "VESTA" /etc/profile.d/vesta.sh ) -eq 0 ]; then
+if [ ! -f "/etc/profile.d/vesta.sh" ]; then
     echo "export VESTA='$VESTA'" > /etc/profile.d/vesta.sh
 fi
 if [ $( grep -ic "vesta" /root/.bash_profile ) -eq 0 ]; then
@@ -132,3 +132,6 @@ if [ -f "/lib/systemd/system/clamav-daemon.service" ]; then
         service clamav-daemon restart > /dev/null 2>&1
     fi
 fi
+
+# Dovecot logrorate script
+wget $vestacp/logrotate/dovecot -O /etc/logrotate.d/dovecot

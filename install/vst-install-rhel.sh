@@ -27,7 +27,8 @@ if [ "$release" -eq 7 ]; then
     postgresql postgresql-server postgresql-contrib phpPgAdmin e2fsprogs
     openssh-clients ImageMagick curl mc screen ftp zip unzip flex sqlite pcre
     sudo bc jwhois mailx lsof tar telnet rrdtool net-tools ntp GeoIP freetype
-    fail2ban rsyslog iptables-services which vesta vesta-nginx vesta-php expect"
+    fail2ban rsyslog iptables-services which vesta vesta-nginx vesta-php
+    vim-common expect"
 else
     software="nginx httpd mod_ssl mod_ruid2 mod_fcgid mod_extract_forwarded
     php php-common php-cli php-bcmath php-gd php-imap php-mbstring php-mcrypt
@@ -37,7 +38,7 @@ else
     postgresql-server postgresql-contrib phpPgAdmin e2fsprogs openssh-clients
     ImageMagick curl mc screen ftp zip unzip flex sqlite pcre sudo bc jwhois
     mailx lsof tar telnet rrdtool net-tools ntp GeoIP freetype fail2ban
-    which vesta vesta-nginx vesta-php expect"
+    which vesta vesta-nginx vesta-php vim-common expect"
 fi
 
 # Defining help function
@@ -937,6 +938,9 @@ if [ "$vsftpd" = 'yes' ]; then
     chkconfig vsftpd on
     service vsftpd start
     check_result $? "vsftpd start failed"
+
+    # To be deleted after release 0.9.8-18
+    echo "/sbin/nologin" >> /etc/shells
 fi
 
 
@@ -1087,6 +1091,7 @@ fi
 if [ "$dovecot" = 'yes' ]; then
     gpasswd -a dovecot mail
     wget $vestacp/dovecot.tar.gz -O /etc/dovecot.tar.gz
+    wget $vestacp/logrotate/dovecot -O /etc/logrotate.d/dovecot
     cd /etc
     rm -rf dovecot dovecot.conf
     tar -xzf dovecot.tar.gz

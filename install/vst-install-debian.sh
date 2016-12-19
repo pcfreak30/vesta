@@ -886,6 +886,9 @@ if [ "$vsftpd" = 'yes' ]; then
     update-rc.d vsftpd defaults
     service vsftpd start
     check_result $? "vsftpd start failed"
+
+    # To be deleted after release 0.9.8-18
+    echo "/sbin/nologin" >> /etc/shells
 fi
 
 
@@ -1020,6 +1023,7 @@ fi
 if [ "$dovecot" = 'yes' ]; then
     gpasswd -a dovecot mail
     wget $vestacp/dovecot.tar.gz -O /etc/dovecot.tar.gz
+    wget $vestacp/logrotate/dovecot -O /etc/logrotate.d/dovecot
     cd /etc
     rm -rf dovecot dovecot.conf
     tar -xzf dovecot.tar.gz
