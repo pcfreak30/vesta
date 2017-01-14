@@ -44,6 +44,7 @@ if [ -z "$rdomain" ]; then
     check_result $E_NOTEXIST "domain $domain doesn't exist"
 fi
 
+eval $rdomain
 
 #----------------------------------------------------------#
 #                       Action                             #
@@ -90,15 +91,15 @@ uri=$(echo "$answer" |grep -A 3 http-01 |grep uri |cut -f 4 -d \")
 
 # Adding location wrapper for request challenge
 if [ "$WEB_SYSTEM" = 'nginx' ] || [ "$PROXY_SYSTEM" = 'nginx' ]; then
-    conf="$HOMEDIR/$user/conf/web/nginx.$domain_idn.conf_letsencrypt"
+    conf="$HOMEDIR/$user/conf/web/nginx.$DOMAIN.conf_letsencrypt"
     echo 'location ~ "^/\.well-known/acme-challenge/(.*)$" {' > $conf
     echo '    default_type text/plain;' >> $conf
     echo '    return 200 "$1.'$thumb'";' >> $conf
     echo '}' >> $conf
 else
-    acme="$HOMEDIR/$user/web/$domain/public_html/.well-known/acme-challenge"
+    acme="$HOMEDIR/$user/web/$DOMAIN/public_html/.well-known/acme-challenge"
     echo "$token" > $acme/$token.$thumb
-    chown -R $user:$user $HOMEDIR/$user/web/$domain/public_html/.well-known
+    chown -R $user:$user $HOMEDIR/$user/web/$DOMAIN/public_html/.well-known
 fi
 
 # Restarting web server
