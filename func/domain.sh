@@ -180,7 +180,7 @@ add_web_config() {
         conf="$HOMEDIR/$user/conf/web/${1}_${2}_ssl.conf"
     fi
 
-    cat $WEBTPL/$1/$WEB_BACKEND/$3 | \
+    cat $WEBTPL/$1/$WEB_BACKEND/$4 | \
         sed -e "s|%ip%|$local_ip|g" \
             -e "s|%domain%|$domain|g" \
             -e "s|%domain_idn%|$domain_idn|g" \
