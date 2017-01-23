@@ -213,14 +213,14 @@ add_web_config() {
     chmod 640 $conf
 
     if [ -z "$(grep "$conf" /etc/$1/conf.d/vesta.conf)" ]; then
-        if [ "$1" != 'nginx' ]; then
-            echo "Include $conf" >> /etc/$1/conf.d/vesta.conf
+        if [ "$3" != 'nginx' ]; then
+            echo "Include $conf" >> /etc/$3/conf.d/vesta.conf
         else
-            echo "include $conf;" >> /etc/$1/conf.d/vesta.conf
+            echo "include $conf;" >> /etc/$3/conf.d/vesta.conf
         fi
     fi
 
-    trigger="${3/.*pl/.sh}"
+    trigger="${4/.*pl/.sh}"
     if [ -x "$WEBTPL/$1/$WEB_BACKEND/$trigger" ]; then
         $WEBTPL/$1/$WEB_BACKEND/$trigger \
             $user $domain $ip $HOMEDIR $HOMEDIR/$user/web/$domain/public_html
