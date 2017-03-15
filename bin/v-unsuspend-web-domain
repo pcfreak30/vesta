@@ -47,8 +47,8 @@ local_ip=$(get_real_ip $IP)
 prepare_web_domain_values
 
 # Rebuilding vhost
-del_web_config "${WEB_SYSTEM}" "${domain_idn}" "$TPL.tpl"
-add_web_config "${WEB_SYSTEM}" "${domain_idn}" "$TPL.tpl"
+del_web_config "${WEB_SYSTEM}" "${domain_idn}" "${WEB_SYSTEM}" "$TPL.tpl"
+add_web_config "${WEB_SYSTEM}" "${domain_idn}" "${WEB_SYSTEM}" "$TPL.tpl"
 if [ "$SSL" = 'yes' ]; then
     del_web_config "${WEB_SYSTEM}" "${domain_idn}" "${WEB_SYSTEM}" "$TPL.stpl"
     add_web_config "${WEB_SYSTEM}" "${domain_idn}" "${WEB_SYSTEM}" "$TPL.stpl"
