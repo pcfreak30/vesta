@@ -82,7 +82,7 @@ fi
 #----------------------------------------------------------#
 
 # Adding dkim in config
-update_object_value 'mail' 'DOMAIN' "$domain_idn" '$DKIM' 'yes'
+update_object_value 'mail' 'DOMAIN' "$domain" '$DKIM' 'yes'
 increase_user_value "$user" '$U_MAIL_DKIM'
 
 # Logging
